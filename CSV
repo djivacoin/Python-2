@@ -1,0 +1,20 @@
+import pandas as pd
+
+def filter_csv(input_file, output_file, column_name, filter_value):
+    # Read the CSV file
+    data = pd.read_csv(input_file)
+    
+    # Filter the data
+    filtered_data = data[data[column_name] == filter_value]
+    
+    # Save the filtered data to a new CSV file
+    filtered_data.to_csv(output_file, index=False)
+    print(f"Filtered data saved to: {output_file}")
+
+if __name__ == "__main__":
+    input_file = input("Enter the path to the input CSV file: ")
+    output_file = input("Enter the path to the output CSV file: ")
+    column_name = input("Enter the column name to filter by: ")
+    filter_value = input("Enter the value to filter for: ")
+    
+    filter_csv(input_file, output_file, column_name, filter_value)
